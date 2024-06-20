@@ -36,7 +36,6 @@ func registerGateway(r *server.Hertz) {
 	group.POST("/:service", handler.HttpGateway)
 }
 
-// watchIDLFile watches the IDL file for changes and updates the service client accordingly.
 func watchIDLFile(idlPath string, resolver discovery.Resolver) {
 	content, err := os.ReadFile(idlPath)
 	if err != nil {
@@ -64,7 +63,6 @@ func watchIDLFile(idlPath string, resolver discovery.Resolver) {
 	}
 }
 
-// updateClient updates the service client with the new IDL content.
 func updateClient(content []byte, serviceName string, resolver discovery.Resolver) {
 	p, err := generic.NewThriftContentProvider(string(content), map[string]string{})
 	if err != nil {
@@ -81,4 +79,3 @@ func updateClient(content []byte, serviceName string, resolver discovery.Resolve
 	}
 	handler.ServiceMap.Store(serviceName, cli)
 }
-

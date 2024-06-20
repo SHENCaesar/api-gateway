@@ -12,5 +12,5 @@ import (
 // Ping .
 func Ping(ctx context.Context, c *app.RequestContext) {
 	c.JSON(consts.StatusOK, "hertz-gateway is running")
-	
+
 }
