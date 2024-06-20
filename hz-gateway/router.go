@@ -33,7 +33,7 @@ func registerGateway(r *server.Hertz) {
 	}
 	go watchIDLFile(idlPath, resolver)
 
-	group.POST("/:svc", handler.HttpGateway)
+	group.POST("/:service", handler.HttpGateway)
 }
 
 // watchIDLFile watches the IDL file for changes and updates the service client accordingly.

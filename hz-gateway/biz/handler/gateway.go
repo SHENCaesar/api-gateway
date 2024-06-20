@@ -22,7 +22,7 @@ type reqParams struct {
 var ServiceMap sync.Map
 
 func HttpGateway(ctx context.Context, c *app.RequestContext) {
-	serviceName := c.Param("svc")
+	serviceName := c.Param("service")
 	cli, ok := ServiceMap.Load(serviceName)
 	if !ok {
 		c.JSON(http.StatusNotFound, fmt.Errorf("Service %v not found", serviceName))
